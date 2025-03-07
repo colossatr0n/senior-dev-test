@@ -1,18 +1,28 @@
+@import "../../../vars.scss";
+
 $edge-thickness: 5px;
 
+#container {
+    display: flex;
+    flex-direction: column;
+    background-color: $background-color-alt;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    text-align: center;
+}
 
 .vertical-edge {
     position: absolute;
     width: $edge-thickness;
     height: 100%;
-    background-color: white;
 }
 
 .horizontal-edge {
     position: absolute;
     height: $edge-thickness;
     width: 100%;
-    background-color: white;
 }
 
 #left-edge {
@@ -24,7 +34,6 @@ $edge-thickness: 5px;
     right: 0px;
     cursor: e-resize;
 }
-
 
 #top-edge {
     top: 0px;
@@ -40,7 +49,6 @@ $edge-thickness: 5px;
     width: $edge-thickness + 3;
     height: $edge-thickness + 3;
     position: absolute;
-    background-color: blue;
 }
 
 #top-left-corner {

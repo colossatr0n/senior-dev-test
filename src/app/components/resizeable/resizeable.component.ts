@@ -32,16 +32,26 @@ export class ResizeableComponent {
         if (!this.isResizing) {
             return
         }
+        // Store in case of restore
+        let prevX = this.posX
+        let prevY = this.posY
+        let prevHeight = this.height
+        let prevWidth = this.width
+
         let clickX = event.clientX
         let clickY = event.clientY
         let diffX = clickX - this.lastClickX
         let diffY = clickY - this.lastClickY
         
         for (let resizeStrat of this.resizeStrats) {
-            if (this.width - diffX > this.minDim 
-                && this.height - diffY > this.minDim) {
-                resizeStrat.call(this, diffX, diffY)
-            }
+            resizeStrat.call(this, diffX, diffY)
+        }
+
+        if (this.width < this.minDim || this.height < this.minDim) {
+            this.posX = prevX
+            this.posY = prevY
+            this.height = prevHeight
+            this.width = prevWidth
         }
 
         this.lastClickX = clickX

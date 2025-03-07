@@ -1,0 +1,32 @@
+$edge-thickness: 20px;
+
+.vertical-edge {
+    position: absolute;
+    width: $edge-thickness;
+    height: 100%;
+    background-color: white;
+}
+
+.horizontal-edge {
+    position: absolute;
+    height: $edge-thickness;
+    width: 100%;
+    background-color: white;
+}
+
+#left {
+    left: 0px;
+}
+
+#right {
+    right: 0px;
+}
+
+
+#top {
+    top: 0px;
+}
+
+#bottom {
+    bottom: 0px;
+}

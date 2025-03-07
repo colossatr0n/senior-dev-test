@@ -56,7 +56,7 @@ export const routes: Routes = [
         },
         data: {
             storeRoute: true,
-            reuseComponent: true,
+            reuseComponent: false,
         },
     },
 ];

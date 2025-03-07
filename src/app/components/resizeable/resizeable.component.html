@@ -1,1 +1,15 @@
-<p>resizeable works!</p>
+<div
+    [ngStyle]="{
+        'left.px': posX, 
+        'top.px': posY,
+        'width.px': width,
+        'height.px': height,
+        'background-color': 'red'
+    }"
+    style="justify-content: center; align-items: center; position: fixed;"
+>
+    <div id='left' class="vertical-edge" (mousedown)="borderClicked($event, [resizeLeft])"></div>
+    <div id='right' class="vertical-edge" (mousedown)="borderClicked($event, [resizeRight])"></div>
+    <div id='top' class="horizontal-edge" (mousedown)="borderClicked($event, [resizeTop])"></div>
+    <div id='bottom' class="horizontal-edge" (mousedown)="borderClicked($event, [resizeBottom])"></div>
+</div>

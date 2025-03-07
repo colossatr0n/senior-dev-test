@@ -4,6 +4,9 @@ import {
     ActivatedRouteSnapshot,
 } from '@angular/router';
 
+/**
+ * Saves state of tabs that contain `storeRout: true` and `resuseComponent: false`.
+ */
 export class TabRouteReuseStrategy implements RouteReuseStrategy {
     private readonly routeByUrl: Record<string, Route | null> = {};
 

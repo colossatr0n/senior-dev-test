@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Stores basic tab panel styling and projects content.
+ */
 @Component({
   selector: 'app-tab-panel',
   imports: [],

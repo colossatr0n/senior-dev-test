@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Filler component for tab panel content.
+ */
 @Component({
   selector: 'app-search',
   imports: [],

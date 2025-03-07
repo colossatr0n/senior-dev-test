@@ -18,11 +18,18 @@ export class NewTabPanelComponent {
     constructor(private readonly router: Router) {
     }
 
+    /**
+     * Opens the selected tab as a new tab and closes the "New Tab".
+     * @param tab 
+     */
     openNewTab(tab: Tab) {
         this.tabService.getActiveTab$().pipe(take(1)).subscribe(activeTab => {
+            // Remove "New Tab", which is the active tab
             this.tabService.removeTab(activeTab)
+            // Add the selected tab
             let newTab = this.tabService.addNewTab(tab)
             if (newTab) {
+                // Navigate to selected tab
                 this.router.navigate([newTab.path, newTab.id])
             }
         })

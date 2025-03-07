@@ -15,23 +15,54 @@ $edge-thickness: 5px;
     background-color: white;
 }
 
-#left {
+#left-edge {
     left: 0px;
     cursor: w-resize;
 }
 
-#right {
+#right-edge {
     right: 0px;
     cursor: e-resize;
 }
 
 
-#top {
+#top-edge {
     top: 0px;
     cursor: n-resize;
 }
 
-#bottom {
+#bottom-edge {
     bottom: 0px;
     cursor: s-resize;
+}
+
+.corner {
+    width: $edge-thickness + 3;
+    height: $edge-thickness + 3;
+    position: absolute;
+    background-color: blue;
+}
+
+#top-left-corner {
+    left: 0px;
+    top: 0px;
+    cursor: nw-resize;
+}
+
+#top-right-corner {
+    top: 0px;
+    right: 0px;
+    cursor: ne-resize;
+}
+
+#bottom-left-corner {
+    bottom: 0px;
+    left: 0px;
+    cursor: sw-resize;
+}
+
+#bottom-right-corner {
+    bottom: 0px;
+    right: 0px;
+    cursor: se-resize;
 }

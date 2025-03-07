@@ -17,7 +17,8 @@ export class TabService {
         let defaultTabs = [
             new Tab('Home', 'home', undefined),
             new Tab('Shop', 'shop', undefined),
-            new Tab('Search', 'search', undefined)
+            new Tab('Search', 'search', undefined),
+            new Tab('Resizeable Playground', 'resizeable', undefined),
         ]
 
         for (let tab of defaultTabs) {

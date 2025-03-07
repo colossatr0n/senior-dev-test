@@ -39,7 +39,6 @@ export const routes: Routes = [
             reuseComponent: false,
         },
     },
-
     {
         path: 'newtab/:id',
         loadComponent() {
@@ -49,5 +48,15 @@ export const routes: Routes = [
             storeRoute: true,
             reuseComponent: true,
         },
-    }
+    },
+    {
+        path: 'resizeable/:id',
+        loadComponent() {
+            return import('./components/resizeable-playground/resizeable-playground.component').then(m => m.ResizeablePlaygroundComponent)
+        },
+        data: {
+            storeRoute: true,
+            reuseComponent: true,
+        },
+    },
 ];

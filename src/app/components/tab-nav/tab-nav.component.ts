@@ -28,11 +28,12 @@ export class TabNavComponent implements OnInit {
     
     openTab(tab: Tab) {
         this.setActive(tab)
-        this.router.navigate([tab.path, tab.id ])
+        console.log(tab)
+        this.router.navigate([tab.path, tab.id])
     }
     
     openNewTab() {
-        this.tabService.addTab(new Tab("New Tab", "newtab", -1))
+        this.tabService.addNewTab(new Tab("New Tab", "newtab"))
         this.router.navigate(["newtab"])
     }
 }

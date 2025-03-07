@@ -3,6 +3,7 @@ import { TabPanelComponent } from "../tab-panel/tab-panel.component";
 import { TabService } from '../../services/tab.service';
 import { Tab } from '../../model/tab.model';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-new-tab-panel',
@@ -17,8 +18,14 @@ export class NewTabPanelComponent {
     constructor(private readonly router: Router) {
     }
 
-    openTab(tab: Tab) {
-        this.tabService.addTab(tab)
-        this.router.navigate([tab.path, tab.id])
+    openNewTab(tab: Tab) {
+        this.tabService.getActiveTab().pipe(take(1)).subscribe(activeTab => {
+            this.tabService.removeTab(activeTab)
+            let newTab = this.tabService.addNewTab(tab)
+            if (newTab) {
+                this.router.navigate([newTab.path, newTab.id])
+                this.tabService.removeTab(tab)
+            }
+        })
     }
 }

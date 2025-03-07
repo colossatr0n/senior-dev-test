@@ -1,4 +1,5 @@
-$edge-thickness: 20px;
+$edge-thickness: 5px;
+
 
 .vertical-edge {
     position: absolute;
@@ -16,17 +17,21 @@ $edge-thickness: 20px;
 
 #left {
     left: 0px;
+    cursor: w-resize;
 }
 
 #right {
     right: 0px;
+    cursor: e-resize;
 }
 
 
 #top {
     top: 0px;
+    cursor: n-resize;
 }
 
 #bottom {
     bottom: 0px;
+    cursor: s-resize;
 }

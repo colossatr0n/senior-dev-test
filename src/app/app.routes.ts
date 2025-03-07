@@ -13,5 +13,11 @@ export const routes: Routes = [
         loadComponent() {
             return import('./components/home/home.component').then(m => m.HomeComponent)
         },
+    },
+    {
+        path: 'newtab',
+        loadComponent() {
+            return import('./components/new-tab-panel/new-tab-panel.component').then(m => m.NewTabPanelComponent)
+        },
     }
 ];

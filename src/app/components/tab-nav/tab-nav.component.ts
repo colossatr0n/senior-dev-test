@@ -3,6 +3,7 @@ import { TabService } from '../../services/tab.service';
 import { Observable, of } from 'rxjs';
 import { Tab } from '../../model/tab.model';
 import { AsyncPipe, NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-nav',
@@ -15,11 +16,18 @@ export class TabNavComponent implements OnInit {
     tabs$: Observable<Tab[]> = this.tabService.getTabs$();
     activeTab$: Observable<Tab> = this.tabService.getActiveTab()
     
+    constructor(private readonly router: Router){}
+    
     ngOnInit(): void {
         this.tabs$ = this.tabService.getTabs$()
     }
 
     setActive(tab: Tab) {
         this.tabService.setActive(tab);
+    }
+    
+    openNewTab() {
+        this.tabService.addTab(new Tab("New Tab", "newtab", -1))
+        this.router.navigate(["newtab"])
     }
 }

@@ -41,7 +41,7 @@ export const routes: Routes = [
     },
 
     {
-        path: 'newtab',
+        path: 'newtab/:id',
         loadComponent() {
             return import('./components/new-tab-panel/new-tab-panel.component').then(m => m.NewTabPanelComponent)
         },

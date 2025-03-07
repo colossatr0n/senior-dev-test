@@ -7,7 +7,7 @@ import { Tab } from '../model/tab.model';
 })
 export class TabService {
     private readonly tabsSubject = new BehaviorSubject<Tab[]>([]) 
-    private readonly activeTabSubject = new ReplaySubject<Tab>(1)
+    private readonly activeTabSubject = new BehaviorSubject<Tab>(new Tab('', ''))
 
     private readonly DEFAULT_TABS = new Array<Tab>()
 
@@ -35,8 +35,8 @@ export class TabService {
         return this.tabsSubject.asObservable().pipe(shareReplay())
     }
     
-    getActiveTab(): Observable<Tab> {
-        return this.activeTabSubject.asObservable().pipe(shareReplay())
+    getActiveTab$(): Observable<Tab> {
+        return this.activeTabSubject.asObservable().pipe()
     }
 
     setActive(tab: Tab) {
@@ -55,9 +55,25 @@ export class TabService {
     }
 
     removeTab(tab: Tab) {
+        let idx = this.tabsSubject.value.indexOf(tab)
         let newTabs = this.tabsSubject.value.filter(t => t != tab)
+        var activeIdx = idx - 1
+        if (idx <= newTabs.length - 1) {
+            activeIdx = idx
+        }
+        else if (idx == 0) {
+            activeIdx = 0
+        }
+
         this.tabsSubject.next(newTabs)
         if (tab.id) this.idsByPath.get(tab.path)?.delete(tab.id)
+        
+        if (newTabs.length > 0) {
+            let activeTab = newTabs.at(activeIdx)
+            this.setActive(activeTab!)
+            console.log('ACTIVE')
+            console.log(activeTab)
+        }
     }
 
     private generateTabWithId(tab: Tab): Tab | null {

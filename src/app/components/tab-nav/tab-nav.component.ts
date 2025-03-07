@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TabService } from '../../services/tab.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, take } from 'rxjs';
 import { Tab } from '../../model/tab.model';
 import { AsyncPipe, NgClass } from '@angular/common';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class TabNavComponent implements OnInit {
     tabService = inject(TabService)
     tabs$: Observable<Tab[]> = this.tabService.getTabs$();
-    activeTab$: Observable<Tab> = this.tabService.getActiveTab()
+    activeTab$: Observable<Tab> = this.tabService.getActiveTab$()
     
     constructor(private readonly router: Router){}
     
@@ -33,7 +33,17 @@ export class TabNavComponent implements OnInit {
     }
     
     openNewTab() {
-        this.tabService.addNewTab(new Tab("New Tab", "newtab"))
-        this.router.navigate(["newtab"])
+        this.tabService.addNewTab(new Tab("New Tab", "newtab", 1))
+        this.router.navigate(["newtab", 1])
+    }
+
+    closeTab(tab: Tab) {
+        this.tabService.removeTab(tab)
+        this.activeTab$.pipe(take(1))
+             .subscribe(t => {
+                 console.log('obs')
+                 console.log(t)
+                this.router.navigate([t.path, t.id])
+            })
     }
 }

@@ -1,5 +1,7 @@
 <app-tab-panel>
+    <div style="display: flex; flex-direction: column; text-align: center; min-width: 300px;">
    @for (tab of menuTabs; track $index) {
     <div (click)="openNewTab(tab)" class="menu-tab">{{ tab.title }}</div>
    } 
+   </div>
 </app-tab-panel>

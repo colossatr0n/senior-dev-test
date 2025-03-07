@@ -1,5 +1,11 @@
-@import './vars.scss';
+@import "./vars.scss";
 
 body {
     background-color: $secondary-color;
+}
+
+* {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }

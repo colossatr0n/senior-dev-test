@@ -1,10 +1,12 @@
 <nav>
     @for (tab of (tabs$ | async); track $index) {
-    <div
-        [ngClass]="tab == (activeTab$ | async) ? 'active' : 'inactive'"
-        (click)="openTab(tab)"
-    >
-        {{ tab.title }}
+    <div [ngClass]="tab == (activeTab$ | async) ? 'active' : 'inactive'">
+        <div (click)="openTab(tab)">
+            {{ tab.title }}
+        </div>
+        <div (click)="closeTab(tab)" style="display: inline; margin-left: 10px">
+            x
+        </div>
     </div>
     }
     <div class="inactive" (click)="openNewTab()">+</div>

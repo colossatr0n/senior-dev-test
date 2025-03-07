@@ -19,7 +19,7 @@ export class NewTabPanelComponent {
     }
 
     openNewTab(tab: Tab) {
-        this.tabService.getActiveTab().pipe(take(1)).subscribe(activeTab => {
+        this.tabService.getActiveTab$().pipe(take(1)).subscribe(activeTab => {
             this.tabService.removeTab(activeTab)
             let newTab = this.tabService.addNewTab(tab)
             if (newTab) {

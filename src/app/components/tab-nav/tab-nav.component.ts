@@ -20,6 +20,7 @@ export class TabNavComponent implements OnInit {
     
     ngOnInit(): void {
         this.tabs$ = this.tabService.getTabs$()
+        this.tabService.getActiveTab$().pipe(take(1)).subscribe(t => this.openTab(t))
     }
 
     setActive(tab: Tab) {

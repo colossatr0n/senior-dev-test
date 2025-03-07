@@ -10,10 +10,17 @@ nav > div {
     border-radius: 5px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    background: $background-color-alt;
     color: $primary-color-alt;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.active {
+    background-color: $background-color;
+}
+
+.inactive {
+    background-color: $background-color-alt;
 }

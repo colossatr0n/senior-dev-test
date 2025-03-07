@@ -1,5 +1,10 @@
 <nav>
     @for (tab of (tabs$ | async); track $index) {
-    <div>{{ tab.title }}</div>
+    <div
+        [ngClass]="tab == (activeTab$ | async) ? 'active' : 'inactive'"
+        (click)="setActive(tab)"
+    >
+        {{ tab.title }}
+    </div>
     }
 </nav>

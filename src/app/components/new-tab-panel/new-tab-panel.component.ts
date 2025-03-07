@@ -24,7 +24,6 @@ export class NewTabPanelComponent {
             let newTab = this.tabService.addNewTab(tab)
             if (newTab) {
                 this.router.navigate([newTab.path, newTab.id])
-                this.tabService.removeTab(tab)
             }
         })
     }

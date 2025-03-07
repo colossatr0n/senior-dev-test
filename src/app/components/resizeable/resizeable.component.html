@@ -1,0 +1,20 @@
+<div 
+    id="container"
+    [ngStyle]="{
+        'left.px': posX, 
+        'top.px': posY,
+        'width.px': width,
+        'height.px': height,
+    }"
+>
+    <div id='left-edge' class="vertical-edge" (mousedown)="borderClicked($event, [resizeLeft])"></div>
+    <div id='right-edge' class="vertical-edge" (mousedown)="borderClicked($event, [resizeRight])"></div>
+    <div id='top-edge' class="horizontal-edge" (mousedown)="borderClicked($event, [resizeTop])"></div>
+    <div id='bottom-edge' class="horizontal-edge" (mousedown)="borderClicked($event, [resizeBottom])"></div>
+
+    <div id='top-left-corner' class="corner" (mousedown)="borderClicked($event, [resizeLeft, resizeTop])"></div>
+    <div id='top-right-corner' class="corner" (mousedown)="borderClicked($event, [resizeTop, resizeRight])"></div>
+    <div id='bottom-left-corner' class="corner" (mousedown)="borderClicked($event, [resizeBottom, resizeLeft])"></div>
+    <div id='bottom-right-corner' class="corner" (mousedown)="borderClicked($event, [resizeBottom, resizeRight])"></div>
+    <ng-content></ng-content>
+</div>

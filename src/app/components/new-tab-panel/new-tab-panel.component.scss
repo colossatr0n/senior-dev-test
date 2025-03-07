@@ -1,0 +1,15 @@
+@import '../../../vars.scss';
+
+.menu-tab {
+    border-radius: 5px;
+    background-color: $background-color-alt;
+    color: $secondary-color;
+    border: none;
+    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}

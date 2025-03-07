@@ -1,0 +1,76 @@
+@import "../../../vars.scss";
+
+$edge-thickness: 5px;
+
+#container {
+    display: flex;
+    flex-direction: column;
+    background-color: $background-color-alt;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    text-align: center;
+}
+
+.vertical-edge {
+    position: absolute;
+    width: $edge-thickness;
+    height: 100%;
+}
+
+.horizontal-edge {
+    position: absolute;
+    height: $edge-thickness;
+    width: 100%;
+}
+
+#left-edge {
+    left: 0px;
+    cursor: w-resize;
+}
+
+#right-edge {
+    right: 0px;
+    cursor: e-resize;
+}
+
+#top-edge {
+    top: 0px;
+    cursor: n-resize;
+}
+
+#bottom-edge {
+    bottom: 0px;
+    cursor: s-resize;
+}
+
+.corner {
+    width: $edge-thickness + 3;
+    height: $edge-thickness + 3;
+    position: absolute;
+}
+
+#top-left-corner {
+    left: 0px;
+    top: 0px;
+    cursor: nw-resize;
+}
+
+#top-right-corner {
+    top: 0px;
+    right: 0px;
+    cursor: ne-resize;
+}
+
+#bottom-left-corner {
+    bottom: 0px;
+    left: 0px;
+    cursor: sw-resize;
+}
+
+#bottom-right-corner {
+    bottom: 0px;
+    right: 0px;
+    cursor: se-resize;
+}

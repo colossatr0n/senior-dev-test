@@ -32,6 +32,7 @@ export class TabService {
     }
     
     addTab(tab: Tab) {
+        this.setActive(tab)
         this.tabsSubject.next([...this.DEFAULT_TABS, tab])
     }
     

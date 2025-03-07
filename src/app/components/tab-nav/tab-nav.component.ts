@@ -26,6 +26,11 @@ export class TabNavComponent implements OnInit {
         this.tabService.setActive(tab);
     }
     
+    openTab(tab: Tab) {
+        this.setActive(tab)
+        this.router.navigate([tab.path, tab.id ])
+    }
+    
     openNewTab() {
         this.tabService.addTab(new Tab("New Tab", "newtab", -1))
         this.router.navigate(["newtab"])

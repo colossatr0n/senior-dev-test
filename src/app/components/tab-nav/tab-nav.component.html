@@ -2,7 +2,7 @@
     @for (tab of (tabs$ | async); track $index) {
     <div
         [ngClass]="tab == (activeTab$ | async) ? 'active' : 'inactive'"
-        (click)="setActive(tab)"
+        (click)="openTab(tab)"
     >
         {{ tab.title }}
     </div>
